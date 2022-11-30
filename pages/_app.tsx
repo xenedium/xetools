@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { MantineProvider, ColorSchemeProvider, type ColorScheme } from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
 import { HeaderMiddle } from '../components/header';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App(props: AppProps) {
     const { Component, pageProps } = props;
@@ -35,6 +36,7 @@ export default function App(props: AppProps) {
                     <Component {...pageProps} />
                 </MantineProvider>
             </ColorSchemeProvider>
+            <Analytics />
         </>
     );
 }
