@@ -1,6 +1,7 @@
 import { Container, createStyles, Title, Textarea, Popover, Text } from '@mantine/core';
 import { ChangeEvent, useState } from 'react';
 import { useClipboard } from '@mantine/hooks';
+import { TextToBase64 } from '../utility';
 
 const useStyles = createStyles((theme) => ({
     container: {
@@ -27,7 +28,7 @@ export default function B64StrEncoder() {
 
     const HandleInputStringChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
         setStringInput(event.target.value);
-        setBase64StringOutput(Buffer.from(event.target.value, 'utf-8').toString('base64'));
+        setBase64StringOutput(TextToBase64(event.target.value));
     };
 
     return (
